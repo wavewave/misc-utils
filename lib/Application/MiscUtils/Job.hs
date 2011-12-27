@@ -94,7 +94,7 @@ findxoj prefix dest path = do
 mkNewXojName :: String -> FilePath -> FilePath 
 mkNewXojName prefix fp = 
   let paths = splitPath fp
-      filename = takeFileName fp  
+      filename = takeBaseName fp  
       dirs = filter (not.null) . map init . filter (\x -> last x == '/') 
              $ paths 
   in filename ++ "_" ++ prefix ++ "_" ++ intercalate "_" dirs <.> "xoj"
