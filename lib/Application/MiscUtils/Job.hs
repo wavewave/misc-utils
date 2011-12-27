@@ -80,6 +80,7 @@ copyXoj prefix srcfile dest =
 
 findxoj :: String -> FilePath -> FilePath -> IO () 
 findxoj prefix dest path = do  
+  putStrLn $ " entering in the directory : " ++ path 
   shortpaths <- getDirectoryContents path 
   let fullpaths = map (path </>) shortpaths
   forM_ fullpaths $ \item -> do 
