@@ -7,3 +7,7 @@ commandLineProcess :: Misc_utils -> IO ()
 commandLineProcess Test = do 
   putStrLn "test called"
   startJob
+commandLineProcess FindXoj = do 
+  putStrLn "findxoj called"
+  startFindXoj
+

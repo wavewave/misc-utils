@@ -26,7 +26,8 @@ Library
   ghc-prof-options: -caf-all -auto-all
   Build-Depends: 
                    base>4, mtl>2, directory, filepath,
-                   cmdargs
+                   cmdargs, 
+                   unix
   Exposed-Modules: 
                    Application.MiscUtils.ProgType
                    Application.MiscUtils.Job
