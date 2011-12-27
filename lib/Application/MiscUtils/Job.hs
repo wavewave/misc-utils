@@ -8,6 +8,7 @@ import Data.Maybe
 import System.Posix.Files 
 import System.Directory 
 import System.FilePath 
+import System.Process
 import System.IO 
 
 
@@ -75,7 +76,8 @@ copyXoj prefix srcfile dest =
   when (checkXoj srcfile) $ do
     let newname = mkNewXojName prefix srcfile 
     putStrLn $ "newname = " ++ newname
-    copyFile srcfile (dest </> newname)
+    system $ "cp -a " ++ srcfile ++ " " ++ (dest </> newname)
+    return () 
 
 
 findxoj :: String -> FilePath -> FilePath -> IO () 

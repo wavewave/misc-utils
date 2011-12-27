@@ -27,7 +27,8 @@ Library
   Build-Depends: 
                    base>4, mtl>2, directory, filepath,
                    cmdargs, 
-                   unix
+                   unix, 
+                   process
   Exposed-Modules: 
                    Application.MiscUtils.ProgType
                    Application.MiscUtils.Job
