@@ -23,6 +23,32 @@ startFindXoj machine dest = do
   cdir <- getCurrentDirectory 
   findxoj machine dest cdir 
 
+
+startConvertXoj :: IO () 
+startConvertXoj = do 
+  putStrLn "find all xoj file and convert"
+  cdir <- getCurrentDirectory 
+  shortpaths <- getDirectoryContents cdir 
+  let fullpaths = map (cdir </>) shortpaths
+  forM_ fullpaths $ \item -> do 
+    checkFileExistAndDo item $ \fp -> do 
+      status <- getFileStatus fp 
+      when (isRegularFile status && not (isSymbolicLink status)) $  
+        if checkXoj item 
+          then convertXoj item 
+          else return ()
+
+
+convertXoj :: FilePath -> IO () 
+convertXoj fp = do 
+  let basename = takeBaseName fp 
+  cdir <- getCurrentDirectory 
+  createDirectory basename 
+  putStrLn $ "xournal-convert makesvg --dest=" ++ cdir </> basename ++ " " ++ fp 
+  system $ "xournal-convert makesvg --dest=" ++ cdir </> basename ++ " " ++ fp 
+  return ()
+
+
 subdiraction :: FilePath -> (FilePath -> IO ()) -> IO () 
 subdiraction path action = do
   -- putStrLn $ " path = " ++ path 

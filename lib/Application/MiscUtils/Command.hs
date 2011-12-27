@@ -10,4 +10,7 @@ commandLineProcess Test = do
 commandLineProcess (FindXoj machine dest) = do 
   putStrLn "findxoj called"
   startFindXoj machine dest
+commandLineProcess ConvertXoj = do 
+  putStrLn "convertxoj called"
+  startConvertXoj 
 
