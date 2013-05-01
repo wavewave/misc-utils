@@ -27,13 +27,6 @@ data HaddockReplace = Replace { buildpath :: String
                               , config :: FilePath } 
                    deriving (Show,Data,Typeable) 
 
--- urlbase :: String 
---  , rootpath :: String
---  , 
-
- -- { urlbase = def &= typ "URLBASE" &= argPos 0 
-         -- , rootpath = def &= typ "ORIGNALFILEDIR" &= argPos 1 
-                  -- ,
 replace :: FilePath -> HaddockReplace 
 replace dothaddock = 
   Replace { buildpath = def &= typ "TARGETFILEDIR" &= argPos 0 
@@ -100,7 +93,7 @@ main = do
   mapM_ removeFile willbeerased 
   updatedpairs <- filterM isUpdated pairs 
 
-  mapM_ print updatedpairs 
+  -- mapM_ print updatedpairs 
   mapM_ (prepareDirectory . snd) updatedpairs 
-  mapM_ (uncurry (processFile (doc1,doc2) urlbase)) updatedpairs 
+  mapM_ (\x -> print x >> uncurry (processFile (doc1,doc2) urlbase) x) updatedpairs 
 
