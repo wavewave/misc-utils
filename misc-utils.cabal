@@ -13,7 +13,7 @@ data-files:
 Executable simplereplace
   Main-is: simplereplace.hs
   hs-source-dirs: exe
-  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind -rtsopts
   ghc-prof-options: -caf-all -auto-all
   Build-Depends: 
                    base>4, 
@@ -22,6 +22,25 @@ Executable simplereplace
                    filepath, 
                    attoparsec, 
                    bytestring
+
+Executable haddockreplace
+  Main-is: haddockreplace.hs
+  hs-source-dirs: exe
+  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind -rtsopts
+  ghc-prof-options: -caf-all -auto-all
+  Build-Depends: 
+                   base>4, 
+                   mtl>2,
+                   directory, 
+                   filepath, 
+                   directory-tree, 
+                   cmdargs,  
+                   process, 
+                   uuid, 
+                   configurator,
+                   transformers
+
+
 
 -- Executable misc-utils
 --  Main-is: misc-utils.hs
