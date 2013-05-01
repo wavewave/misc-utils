@@ -1,5 +1,5 @@
 Name:		misc-utils
-Version:	0.1
+Version:	0.0.999
 Synopsis:	
 Description: 	
 License: 	BSD3
@@ -10,30 +10,42 @@ Build-Type: 	Simple
 Cabal-Version:  >= 1.8
 data-files:     
 
-
-Executable misc-utils
-  Main-is: misc-utils.hs
+Executable simplereplace
+  Main-is: simplereplace.hs
   hs-source-dirs: exe
   ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
   ghc-prof-options: -caf-all -auto-all
   Build-Depends: 
-                   base>4, mtl>2, directory, filepath,
-                   cmdargs, misc-utils
+                   base>4, 
+                   mtl>2,
+                   directory, 
+                   filepath, 
+                   attoparsec, 
+                   bytestring
 
-Library
-  hs-source-dirs: lib
-  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
-  ghc-prof-options: -caf-all -auto-all
-  Build-Depends: 
-                   base>4, mtl>2, directory, filepath,
-                   cmdargs, 
-                   unix, 
-                   process
-  Exposed-Modules: 
-                   Application.MiscUtils.ProgType
-                   Application.MiscUtils.Job
-                   Application.MiscUtils.Command
-  Other-Modules: 
+-- Executable misc-utils
+--  Main-is: misc-utils.hs
+--  hs-source-dirs: exe
+--  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+--  ghc-prof-options: -caf-all -auto-all
+--  Build-Depends: 
+--                   base>4, mtl>2, directory, filepath,
+--                   cmdargs, misc-utils
+--
+-- Library
+--  hs-source-dirs: lib
+--  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+--  ghc-prof-options: -caf-all -auto-all
+--  Build-Depends: 
+--                   base>4, mtl>2, directory, filepath,
+--                   cmdargs, 
+--                   unix, 
+--                   process
+--  Exposed-Modules: 
+--                   Application.MiscUtils.ProgType
+--                   Application.MiscUtils.Job
+--                   Application.MiscUtils.Command
+--  Other-Modules: 
 
  
 		 
